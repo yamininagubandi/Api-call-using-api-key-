@@ -1,0 +1,422 @@
+Question 1
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+  //Your code goes here … replace the below line with your code logic 
+
+  temp=userInput[0].split(" ").map(Number);
+  //anonymous function
+  var result=function(temp){
+      for(i=0;i<temp.length;i++){
+          if((temp[i])%2!=0){
+              console.log(temp[i])
+          }
+      }
+  }
+  result(temp)
+  //iife function
+  (function(nums) { 
+      for(i=0;i<nums.length;i++){
+          if(parseInt(nums[i])%2!=0){
+              console.log("kjan",nums[i])
+          }
+      }
+  })(temp)
+
+  //end-here
+});
+Question No 2:
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+  //Your code goes here … replace the below line with your code logic 
+
+  temp=userInput[0].split(" ");
+  //Ananoymous function
+  var res=function(nums){
+      for(i=0;i<nums.length;i++){
+          nums[i]=nums[i].toUpperCase();
+      }
+      return nums;
+  }
+  console.log(res(temp))
+  //IIFE function
+  (function(num){
+      for(i=0;i<num.length;i++){
+          num[i]=num[i].toUpperCase();
+      }
+      console.log(num);
+  })(temp)
+
+  //end-here
+});
+Question 3
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+  //Your code goes here … replace the below line with your code logic 
+
+  temp=userInput[0].split(" ").map(Number);
+  //Ananymous function
+  var res = function(nums){
+      var sum=0;
+      for(i=0;i<nums.length;i++){
+          sum+=nums[i];
+      }
+      return sum;
+  }
+  console.log(res(temp));
+  //IIFE function
+  ( function(num){
+      var summ=0;
+      for(i=0;i<num.length;i++){
+          summ+=num[i];
+      }
+      console.log(summ);
+  })(temp)
+  
+
+  //end-here
+});
+Question 4
+// Getting input via STDIN
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+  //Your code goes here … replace the below line with your code logic 
+
+  temp=userInput[0].split(" ").map(Number);
+  //Ananymous function
+  //Anonymous function
+  var result = function(nums){
+      function is_prime(num){
+          if(num<=2){
+              return false;
+          }
+          for(i=2;i<num;i++){
+              if(num%i==0){
+                  return false;
+              }
+          }
+          return true;
+      }
+      for(j=0;j<nums.length;j++){
+          if(is_prime(nums[j])==true){
+              console.log(nums[j]);
+          }
+      }
+      
+  }
+  result(temp)
+  //IIFe function
+  (function (arr){
+      function iss_prime(number){
+          if(number<=2){
+              return false;
+          }
+          for(var i=2;i<number;i++){
+              if(number%i==0){
+                  return false;
+              }
+          }
+          return true;
+      }
+      for(j=0;j<arr.length;j++){
+          if(iss_prime(arr[j])==true){
+              console.log(arr[j]);
+          }
+      }
+  })(temp);
+  
+
+  //end-here
+});
+Question 7:
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+  //Your code goes here … replace the below line with your code logic 
+
+  temp=userInput[0].split(" ").map(Number);
+
+  //Anonymous function
+  var res=function(nums){
+      d={};
+      for(i=0;i<nums.length;i++){
+          d[nums[i]]=0;
+          
+      }
+      console.log(Object.keys(d))
+  }
+  res(temp);
+  //iife function
+  (function(arr){
+      d1={}
+      for(i=0;i<arr.length;i++){
+          d1[arr[i]]=0;
+      }
+      console.log(Object.keys(d1));
+  })(temp)
+  //end-here
+});
+Question 8:
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+  //Your code goes here … replace the below line with your code logic 
+  temp=userInput[0].split(" ").map(Number);
+  temp_arr=[];
+  //Since i am writting both the functions in the same code i am creating a copy of an array so that i use the copy function for using in IIFE function
+  //copying the temp array by value
+  for(var j=0;j<temp.length;j++){
+      temp_arr.push(temp[j])
+  }
+  k=parseInt(userInput[1])
+  //Anonymous function
+  var result=function(nums,k){
+      nums.reverse();
+      var start=0;
+      var n = nums.length;
+      var end=n-k-1;
+      while(start<end){
+          temp1=nums[start];
+          nums[start]=nums[end];
+          nums[end]=temp1;
+          start+=1;
+          end-=1;
+      }
+      s1=n-k;
+      e1=n-1;
+      while(s1<e1){
+          tempp1=nums[s1];
+          nums[s1]=nums[e1];
+          nums[e1]=tempp1;
+          s1+=1;
+          e1-=1;
+      }
+      console.log(nums);
+      
+  }
+  result(temp,k);
+  //iife function
+  (function(arr,k){
+      arr.reverse();
+      var s=0;
+      var n1=arr.length;
+      var e=n1-k-1;
+      while(s<e){
+          temp2=arr[s];
+          arr[s]=arr[e];
+          arr[e]=temp2;
+          s+=1;
+          e-=1;
+      }
+      s2=n1-k;
+      e2=n1-1;
+      while(s2<e2){
+          tempp2=arr[s2];
+          arr[s2]=arr[e2];
+          arr[e2]=tempp2;
+          s2+=1;
+          e2-=1;
+      }
+      console.log(arr);
+  })(temp_arr,k)
+  
+  //end-here
+});
+Question 5:
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+  //Your code goes here … replace the below line with your code logic 
+  arr=userInput[0].split(" ");
+  //Anonymous function
+  var result = function(nums){
+      var ans=[]
+      for(i=0;i<nums.length;i++){
+          temp=nums[i].split("");
+          temp.reverse();
+          reversed_one = temp.join("");
+          if(nums[i]==reversed_one){
+              ans.push(nums[i])
+          }
+      }
+      if(ans.length ==0){
+          return "None in the array is a palindrome";
+      }
+      else{
+          return ans;
+      }
+  }
+  console.log(result(arr));
+  //IIFE function
+  (function(arr1){
+      var ans1=[];
+      for(j=0;j<arr1.length;j++){
+          temp1=arr1[j].split("");
+          temp1.reverse();
+          reverse_one=temp1.join("");
+          if(arr1[j]==reverse_one){
+              ans1.push(arr1[j]);
+          }
+      }
+      if(ans1.length==0){
+          console.log("None in the array is a palindrome");
+      }else{
+          console.log(ans1);
+      }
+  })(arr)
+  
+  //end-here
+});
+QUESTION NO 6
+const readline = require("readline");
+
+const inp = readline.createInterface({
+  input: process.stdin
+});
+
+const userInput = [];
+
+inp.on("line", (data) => {
+  userInput.push(data);
+});
+
+inp.on("close", () => {
+  //start-here
+  //Your code goes here … replace the below line with your code logic 
+  arr1=userInput[0].split(" ").map(Number);
+  arr2=userInput[1].split(" ").map(Number);
+  var res=function(arr1,arr2){
+      var i=0;
+      res_arr=[];
+      while(i<arr1.length+arr2.length){
+          if(i<arr1.length){
+              res_arr.push(arr1[i])
+          }else{
+              res_arr.push(arr2[i-arr1.length])
+          }
+          i+=1;
+          
+      }
+      res_arr.sort();
+      if(res_arr.length%2!=0){
+          mid=res_arr.length/2;
+          console.log(res_arr[mid])
+      }else{
+          mid=res_arr.length/2;
+          median=(res_arr[mid]+res_arr[mid-1])/2;
+          console.log(median);
+      }
+      
+  }
+  res(arr1,arr2);
+  //IIFE function
+  (function(arr1,arr2){
+       var i=0;
+        res_arr=[];
+        while(i<arr1.length+arr2.length){
+          if(i<arr1.length){
+              res_arr.push(arr1[i])
+          }else{
+              res_arr.push(arr2[i-arr1.length])
+          }
+          i+=1;
+          
+        }
+        res_arr.sort();
+        if(res_arr.length%2!=0){
+          mid=res_arr.length/2;
+          console.log(res_arr[mid])
+        }else{
+          mid=res_arr.length/2;
+          median=(res_arr[mid]+res_arr[mid-1])/2;
+          console.log(median);
+        }
+      
+  })(arr1,arr2)
+ 
+  
+  //end-here
+});
